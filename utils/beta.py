@@ -8,7 +8,7 @@ import pickle
 from .alpha import agent_alpha, VERSION
 from .beta_answer import agent_beta_answer
 from .util import ROOT_PATH, is_kaggle_agent, QUESTION_IS_ALPHA
-from .util import ObjectHavingQuestions
+from .util import ObjectHavingQuestions, Cfg
 
 # device = "cpu"
 device = "cuda"
@@ -70,7 +70,7 @@ def get_probs_initial():
     return probs_initial
 
 
-def get_probs(obs, cfg, data, list_questions, list_keywords):
+def get_probs(obs: ObjectHavingQuestions, _cfg: Cfg, data, list_questions, list_keywords):
     questions = obs["questions"]
     answers = obs["answers"]
     guesses = obs["guesses"]
@@ -111,7 +111,7 @@ def get_idx_questions_asked(obs, list_questions):
     return idx_questions_asked
 
 
-def agent_beta(obs: ObjectHavingQuestions, cfg):
+def agent_beta(obs: ObjectHavingQuestions, cfg: Cfg):
     """This agent function is a placeholder, roll out your own! Use LLM or any alternative."""
 
     if obs.turnType == "ask":

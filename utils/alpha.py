@@ -3,6 +3,7 @@ import pickle
 import re
 
 from .util import ROOT_PATH
+from .util import ObjectHavingQuestions, Cfg
 
 VERSION = 100
 
@@ -77,7 +78,7 @@ def get_mid_testword(list_keywords_with_priority):
     return None
 
 
-def agent_alpha(obs, cfg):
+def agent_alpha(obs: ObjectHavingQuestions, _cfg: Cfg):
     list_keywords_with_priority = get_list_keywords_with_priority()
     list_keywords_with_priority = sieve_list_keywords_with_priority(
         list_keywords_with_priority, obs

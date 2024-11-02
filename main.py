@@ -28,10 +28,11 @@ try:
 except:
     from utils.switchboard import switchboard
 
+from utils.util import Cfg
 
 # TODO: Where is it called?
 # The following notebooks is the same... [LLM 20 Questions Starter Notebook](https://www.kaggle.com/code/ryanholbrook/llm-20-questions-starter-notebook)
-def agent_fn(obs: ObjectHavingQuestions, cfg):
+def agent_fn(obs: ObjectHavingQuestions, cfg: Cfg):
     """The main hook, keep it named 'agent_fn'."""
     # return "no"
     print("#" * 120)

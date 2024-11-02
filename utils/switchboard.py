@@ -1,12 +1,12 @@
 from .alpha import agent_alpha, VERSION
 from .beta import agent_beta
 from .util import QUESTION_IS_ALPHA
-from .util import ObjectHavingQuestions
+from .util import ObjectHavingQuestions, Cfg
 
 FLAG_USE_ALPHA = True
 
 
-def switchboard(obs: ObjectHavingQuestions, cfg):
+def switchboard(obs: ObjectHavingQuestions, cfg: Cfg):
     """The main switchboard, deciding which sub-agent to call."""
 
     if obs.turnType == "ask":

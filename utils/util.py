@@ -9,6 +9,11 @@ import torch
 QUESTION_IS_ALPHA = "Is it Agent Alpha?"
 # GUESS_IS_ALPHA = "Hurray! It's Agent Alpha!"
 
+# This type is called from others notebook
+# However, I hate to resolve code dependency so I decided to declare it here.
+
+Cfg = Any
+
 
 def is_local() -> bool:
     KAGGLE_NOTEBOOK_PATH = "/kaggle/working"

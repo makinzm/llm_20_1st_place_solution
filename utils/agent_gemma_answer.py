@@ -11,13 +11,14 @@ import torch
 from .util import get_last_question, get_keyword, is_valid_answer
 from .model_gemma import model_gemma_load, model_to_cpu
 from .model_all import delete_all_models
+from .util import Question, ObjectHavingQuestions
 
 
 TEST = True
 
 
-def format_question_from_deepmath(obs):
-    question_raw = get_last_question(obs)
+def format_question_from_deepmath(obs: ObjectHavingQuestions):
+    question_raw: Question = get_last_question(obs)
     keyword = get_keyword(obs)
 
     question_formatted = f'The keyword is "{keyword}". '
@@ -118,7 +119,7 @@ def get_answer_from_gemma(model, tokenizer, obs, cfg, question_formatted):
     return ret
 
 
-def agent_gemma_answer(obs, cfg):
+def agent_gemma_answer(obs: ObjectHavingQuestions, cfg):
     # return "no"
     # return "yes"
 

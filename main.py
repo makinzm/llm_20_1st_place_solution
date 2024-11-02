@@ -18,6 +18,8 @@ if os.path.exists(KAGGLE_AGENT_PATH):
 else:
     sys.path.insert(0, "/kaggle/working/submission/lib")
 
+from .utils.util import ObjectHavingQuestions
+
 # add current directory to path
 # sys.path.insert(0, os.path.dirname(__file__))
 
@@ -27,7 +29,9 @@ except:
     from utils.switchboard import switchboard
 
 
-def agent_fn(obs, cfg):
+# TODO: Where is it called?
+# The following notebooks is the same... [LLM 20 Questions Starter Notebook](https://www.kaggle.com/code/ryanholbrook/llm-20-questions-starter-notebook)
+def agent_fn(obs: ObjectHavingQuestions, cfg):
     """The main hook, keep it named 'agent_fn'."""
     # return "no"
     print("#" * 120)

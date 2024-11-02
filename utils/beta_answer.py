@@ -5,6 +5,7 @@ import sys
 from .util import is_local, get_last_question, get_keyword
 from .agent_deepmath_answer import agent_deepmath_answer
 from .agent_gemma_answer import agent_gemma_answer
+from .util import ObjectHavingQuestions
 
 import re
 
@@ -152,7 +153,7 @@ def ask_chronological(question):
     return any(word in question for word in words)
 
 
-def use_program(obs, cfg):
+def use_program(obs: ObjectHavingQuestions, cfg):
     # return True  # TODO: for debug
     # return False  # TODO: for debug
     # return len(obs.questions) % 2 == 1
@@ -166,7 +167,7 @@ def use_program(obs, cfg):
     return ret
 
 
-def agent_beta_answer(obs, cfg):
+def agent_beta_answer(obs: ObjectHavingQuestions, cfg):
     assert obs.turnType == "answer"
     turn = len(obs.questions)
 

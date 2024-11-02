@@ -12,6 +12,7 @@ from .util import get_last_question, get_keyword, is_valid_answer, is_local
 from .model_deepmath import model_deepmath_load, model_to_cpu
 from .model_gemma import model_gemma_load
 from .model_all import delete_all_models
+from .util import Question, ObjectHavingQuestions
 
 TEST = True
 
@@ -98,8 +99,8 @@ def process_output(output, obs=None, n_try=None):
     return result_output, code_output
 
 
-def format_question_from_deepmath(obs):
-    question_raw = get_last_question(obs)
+def format_question_from_deepmath(obs: ObjectHavingQuestions):
+    question_raw: Question = get_last_question(obs)
     keyword = get_keyword(obs).lower()
 
     # replace \"A\" to \"a\"
@@ -236,7 +237,7 @@ def get_answer_from_deepmath(model, tokenizer, obs, cfg, question_formatted, n_t
     return code_output
 
 
-def agent_deepmath_answer(obs, cfg):
+def agent_deepmath_answer(obs: ObjectHavingQuestions, cfg):
     print("begin agent_deepmath_answer")
     delete_all_models("deepmath")
     model, tokenizer = model_deepmath_load()

@@ -44,6 +44,8 @@ def agent_fn(obs: ObjectHavingQuestions, cfg: Cfg):
 
         print(f"Error: {e}")
 
+        # https://docs.python.org/ja/3/library/traceback.html#traceback.print_exception
+        # My Experiment: [makinzm/traceback_tmp](https://github.com/makinzm/traceback_tmp)
         traceback.print_exc()
         response = "no"
     print(f"response: {response}")
